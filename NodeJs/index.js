@@ -11,7 +11,7 @@ connectToDataBase();
 // //require("./modules/fs.js");
 // //require("./modules/http.js");
 
-// require("./modules/express.js");
+require("./modules/express.js");
 
 // //Apenas o nome do arquivo atual
 // const person = new Person("Felipe");
