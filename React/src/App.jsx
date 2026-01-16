@@ -45,18 +45,31 @@ function App() {
     setTasks(newTasks);
   }
 
+  //Função para deletar Tasks ao clicar no botão da lixeira
   function onDeleteTaskClick(taskId) {
     const newTasks = tasks.filter((task) => task.id !== taskId);
     setTasks(newTasks);
   }
+
+  //Função para adicionar Tasks
+  function onAddTaskSubmit(title, description) {
+    const newTask = {
+      id: tasks.length + 2,
+      title,
+      description,
+      isCompleted: false,
+    };
+
+    setTasks([...tasks, newTask]);
+  }
   return (
     <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
-      <div className="w-[500]">
+      <div className="w-[500] space-y-4">
         {" "}
         <h1 className=" text-3xl text-slate-100 font-bold text-center">
           Gerenciador de Tarefas
         </h1>
-        <AddTask />
+        <AddTask onAddTaskSubmit={onAddTaskSubmit} />
         <Tasks
           tasks={tasks}
           onTaskClick={onTaskClick}
