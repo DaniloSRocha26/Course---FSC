@@ -2,6 +2,7 @@ import AddTask from "./components/AddTask";
 import Tasks from "./components/Tasks";
 import { useState } from "react";
 
+//test
 function App() {
   // State (Estado)
   //message virou a nova variável no lugar do let message, setMessage é a variável que vai
