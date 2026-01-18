@@ -4,6 +4,12 @@ import { useNavigate } from "react-router-dom";
 function Tasks({ tasks, onTaskClick, onDeleteTaskClick }) {
     const navigate = useNavigate();
 
+    //test
+    function x() {
+        return;
+    }
+    console.log(x);
+
     function onSeeDetailsClick(task) {
         const query = new URLSearchParams();
         query.set("title", task.title);
