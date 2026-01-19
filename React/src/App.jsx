@@ -1,6 +1,6 @@
 import AddTask from "./components/AddTask";
 import Tasks from "./components/Tasks";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { v4 } from "uuid";
 
 //test
@@ -10,28 +10,12 @@ function App() {
     // receber o novo valor
 
     //let message = "Olá Mundo!";
-    const [tasks, setTasks] = useState([
-        {
-            id: 1,
-            title: "Estudar programação",
-            description:
-                "Estudar programação para se tornar um desenvolvedor full stack",
-            isCompleted: false,
-        },
-        {
-            id: 2,
-            title: "Estudar inglês",
-            description: "Estudar inglês para se tornar fluente",
-            isCompleted: false,
-        },
-        {
-            id: 3,
-            title: "Estudar Matemática",
-            description:
-                "Estudar Matemática para se tornar um desenvolvedor Full Stack",
-            isCompleted: false,
-        },
-    ]);
+    const [tasks, setTasks] = useState(
+        JSON.parse(localStorage.getItem("tasks")) || [],
+    );
+    useEffect(() => {
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    }, [tasks]);
 
     //Função para atualizar o estado da tarefa : Completo / Não completo
     function onTaskClick(taskId) {
